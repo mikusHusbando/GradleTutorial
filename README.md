@@ -1,5 +1,6 @@
 # Tutorial über die Generierung von einer direkt startbaren Anwendung mit Hilfe von Gradle
-## Erstellen des Application-Templates
+## Erstellen einer Gradle-Ordnerstruktur
+
 Zuerst muss mit cd in den Ordner gewechselt werden, in dem man sein Projekt speichern möchte.
 
     cd ~/Projects
@@ -22,7 +23,7 @@ Man kann auch andere Testframeworks verwenden, indem man diese als weiteren Para
     
 Danach erhält man eine Ordnerstruktur-Vorlage für eine durchschnittliche Java-Applikation.
 ```
-nico@pwrdbylnx ~/Converter % tree
+nico@pwrdbylnx ~/Projects/Converter % tree
     .
     ├── build.gradle
     ├── gradle
@@ -45,17 +46,17 @@ Alle Einstellungen lassen sich auch im Nachhinein anwenden.
 
 ## Anpassen der erstellten Vorlage
 
-Wichtig für das Erstellen einer zip-Datei mit ausführbarem Inhalt ist das Application-Plugin. Wenn Gradle mit dem richtigen Parameter ausgeführt wurde, sollten jetzt in build.gradle folgende Zeilen eingetragen sein:
+Wichtig für das Erstellen einer zip-Datei mit ausführbarem Inhalt ist das Application-Plugin. Wenn Gradle mit dem richtigen Parametern ausgeführt wurde, sollten jetzt in `build.gradle` folgende Zeilen eingetragen sein:
 
     // Apply the application plugin to add support for building an application
     apply plugin: 'application'
 
-Nachdem man die Vorlage erstellt hat, muss man jetzt noch Anpassungen an der build.gradle-Datei vornehmen. Die letzte Zeile muss an den eigenen Hauptklassennamen, in unserem Fall Converter angepasst werden.
+Nachdem man die Vorlage erstellt hat, muss man jetzt noch Anpassungen an der `build.gradle`-Datei vornehmen. Die letzte Zeile muss an den eigenen Hauptklassennamen, in unserem Fall `Converter` angepasst werden.
 
     // Define the main class for the application
     mainClassName = 'Converter'
     
-Wenn der Projektname vom Ordnernamen, in dem gradle init ausgeführt wurde abweicht, kann der Projektname in der letzen Zeile der Datei settings.gradle angepasst werden.
+Wenn der Projektname vom Ordnernamen, in dem `gradle init` ausgeführt wurde abweicht, kann der Projektname in der letzen Zeile der Datei `settings.gradle` angepasst werden.
 
     rootProject.name = 'Converter'
 
@@ -66,15 +67,13 @@ Jetzt muss der Code für die Converter-Anwendung noch in den richtigen Ordner ko
     cp ~/Converter.java ~/Projects/Converter/src/main/java
     cp ~/ConverterTest.groovy ~/Projects/Converter/src/test/groovy
     
-Ebenfalls sollten die Templates App.java und AppTest.java gelöscht werden.
+Ebenfalls sollten die Templates `App.java` und `AppTest.java` gelöscht werden.
 
     rm ~/Projects/Converter/src/main/java/Apptest.java
     rm ~/Projects/Converter/src/test/groovy/Apptest.java
-aaaa
-aaaaaaa
-aaaa
-aaaa
-aaaaaaaa
+
+## Erstellen des zip-Files zum Download
+
 aaaa
 aaaa
 aaaaaaaa
