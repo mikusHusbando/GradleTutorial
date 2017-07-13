@@ -1,7 +1,7 @@
 # Tutorial über die Generierung von einer direkt startbaren Anwendung mit Hilfe von Gradle
 ## Erstellen einer Gradle-Ordnerstruktur
 
-Zuerst muss mit cd in den Ordner gewechselt werden, in dem man sein Projekt speichern möchte.
+Zuerst muss mit `cd` in den Ordner gewechselt werden, in dem man sein Projekt speichern möchte.
 
     cd ~/Projects
 
@@ -46,7 +46,7 @@ Alle Einstellungen lassen sich auch im Nachhinein anwenden.
 
 ## Anpassen der erstellten Vorlage
 
-Wichtig für das Erstellen einer zip-Datei mit ausführbarem Inhalt ist das Application-Plugin. Wenn Gradle mit dem richtigen Parametern ausgeführt wurde, sollten jetzt in `build.gradle` folgende Zeilen eingetragen sein:
+Wichtig für das Erstellen einer zip-Datei mit ausführbarem Inhalt ist das Application-Plugin. Wenn Gradle mit den richtigen Parametern ausgeführt wurde, sollten jetzt in `build.gradle` folgende Zeilen eingetragen sein:
 
     // Apply the application plugin to add support for building an application
     apply plugin: 'application'
@@ -74,42 +74,42 @@ Ebenfalls sollten die Templates `App.java` und `AppTest.java` gelöscht werden.
 
 ## Erstellen des zip-Files zum Download
 
-aaaa
-aaaa
-aaaaaaaa
-aaaa
-aaaa
-aaaaaaaa
-aaaa
-aaaa
-aaaaaaaa
-aaaa
-aaaa
-aaaaaaaa
-aaaa
-aaaa
-aaaaaaaa
-aaaa
-aaaa
-aaaaaaaa
-aaaa
-aaaa
-aaaaaaaa
-aaaa
-aaaa
-aaaaaaaa
-aaaa
-aaaa
-aaaaaaaa
-aaaa
-aaaa
-aaaaaaaa
-aaaa
-aaaa
-aaaaaaaa
-aaaa
-aaaa
-aaaaaaaa
-aaaa
-aaaa
-aaaa
+Das Application-Plugin von Gradle erstellt uns einige Tasks für unser Projekt. Alle verfügbaren Tasks lassen sich über den folgenden Befehl anzeigen:
+
+    gradle tasks
+
+Um eine zip-Datei inklusive einer startbaren Anwendung zu erhalten, muss der Task `distZip` ausgeführt werden.
+
+    gradle distZip
+    ls ./build/distributions
+    
+Jetzt sollte als Ausgabe von `ls` eine Datei `Converter.zip` im Ordner `~/Projects/Converter/build/distributions` vorhanden sein.
+
+## Benutzen der erstellten Anwendung
+
+Die Datei `Converter.zip` kann jetzt an  einen Benutzer versendet werden. Um den Converter zu verwenden, braucht er nur die Datei zu entpacken und im Ordner `Converter/bin` die Datei `Converter` unter Linux oder `Converter.bat` unter Windows mit den entsprechenden Parametern zu starten.
+
+    cd ~/Downloads
+    unzip Converter.zip
+    
+    cd ./Converter/bin/
+    ./Converter -I 16 --out 2 --value 19
+    11001
+    ./Converter -V 19 --in 16
+    25
+    
+Die Applikation läuft jetzt genau so wie als wenn sie mit dem `java`-Befehl aufgerufen wurde.
+
+    ./Converter -I 16 --out 2 --value 19
+    11001
+    ./Converter --out 2 --in 16 -V 19
+    11001
+    ./Converter -V 19 --in 16
+    25
+    ./Converter -O 16 -V 19
+    13
+    ./Converter --value 19
+    19
+    ./Converter
+    usage: Converter
+    -I,--in <arg>     Eingabeformat (2,8,10,16)
