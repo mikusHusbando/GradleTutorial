@@ -91,15 +91,10 @@ Die Datei `Converter.zip` kann jetzt an  einen Benutzer versendet werden. Um den
 
     cd ~/Downloads
     unzip Converter.zip
+        
+Die Applikation läuft jetzt genau so wie als wenn sie mit dem `java`-Befehl aufgerufen wurde.
     
     cd ./Converter/bin/
-    ./Converter -I 16 --out 2 --value 19
-    11001
-    ./Converter -V 19 --in 16
-    25
-    
-Die Applikation läuft jetzt genau so wie als wenn sie mit dem `java`-Befehl aufgerufen wurde.
-
     ./Converter -I 16 --out 2 --value 19
     11001
     ./Converter --out 2 --in 16 -V 19
