@@ -16,10 +16,31 @@ und initialisert sein Gradle-Projekt. Da wir eine Java-Anwendung erstellen, kön
 
     gradle init --type=java-application
     
-Danach erhält man eine Ordnerstruktur-Vorlage für eine durchschnittliche Java-Applikation. Man kann auch andere Testframeworks verwenden, indem man diese als weiteren Parameter angibt.
+Man kann auch andere Testframeworks verwenden, indem man diese als weiteren Parameter angibt.
 
     gradle init --type=java-application --test-framework spock
     
+Danach erhält man eine Ordnerstruktur-Vorlage für eine durchschnittliche Java-Applikation.
+```
+nico@pwrdbylnx ~/Converter % tree
+    .
+    ├── build.gradle
+    ├── gradle
+    │   └── wrapper
+    │       ├── gradle-wrapper.jar
+    │       └── gradle-wrapper.properties
+    ├── gradlew
+    ├── gradlew.bat
+    ├── settings.gradle
+    └── src
+        ├── main
+        │   └── java
+        │       └── App.java
+        └── test
+            └── groovy
+                └── AppTest.groovy
+```
+
 Alle Einstellungen lassen sich auch im Nachhinein anwenden.
 
 ## Anpassen der erstellten Vorlage
@@ -39,6 +60,16 @@ Wenn der Projektname vom Ordnernamen, in dem gradle init ausgeführt wurde abwei
     rootProject.name = 'Converter'
 
 ## Erstellen der Anwendung
+
+Jetzt muss der Code für die Converter-Anwendung noch in den richtigen Ordner kopiert werden oder angelegt werden.
+
+    cp ~/Converter.java ~/Projects/Converter/src/main/java
+    cp ~/ConverterTest.groovy ~/Projects/Converter/src/test/groovy
+    
+Ebenfalls sollten die Templates App.java und AppTest.java gelöscht werden.
+
+    rm ~/Projects/Converter/src/main/java/Apptest.java
+    rm ~/Projects/Converter/src/test/groovy/Apptest.java
 aaaa
 aaaaaaa
 aaaa
